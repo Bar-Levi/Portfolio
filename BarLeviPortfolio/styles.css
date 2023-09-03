@@ -1,0 +1,626 @@
+/* styles.css */
+:root {
+  --dark-color: rgb(26, 16, 16);
+  --shirt-color: rgba(252,251,226);
+  --skin-color: #fcbe8f;
+}
+
+html, body {
+  user-select: none;
+  background-color: var(--dark-color);
+  color: var(--shirt-color);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.menuSection {
+  position: fixed;
+  top: 0;
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  height: 5rem;
+  border-bottom: 0.1em groove var(--shirt-color);
+  z-index: 1000;
+  background-color: black;
+  align-items: center;
+}
+
+.menuSection span {
+  position: relative;
+  width: fit-content;
+  left: 0.5em;
+  color: #fcbe8f;
+  transform: rotate(-15deg);
+  animation: spin ease-in-out 1.5s;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(15deg);
+  }
+  to {
+    transform: rotate(345deg);
+  }
+}
+
+.menuSection .menu {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  flex-basis: 70%;
+  bottom: 100%;
+  top:50%;
+  right: 1em;
+  align-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuSection .menu li {
+  padding: 0 1em;
+}
+
+
+
+.linedText{
+  text-decoration: none;
+  color: var(--skin-color);
+  font-weight: 900;
+  position: relative;
+}
+
+.linedText::after, .linedText::before {
+  content: '';
+  position: absolute;
+  bottom: -0.2em;
+  left: 0;
+  background-color: var(--shirt-color);
+  opacity: 0.9;
+  height: 0.15em;
+  width: 0;
+  transition: 0.5s;
+}
+
+.linedText::before {
+  top: -0.2em;
+}
+
+
+.linedText:hover::after, .linedText:hover::before {
+  width: 100%;
+}
+
+/* --------- Introduce Section ----------- */
+
+.introduceSection {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 5vh;
+}
+
+
+.introduceSection .selfie {
+  height: 90vh;
+  position: relative;
+  margin-left: auto;
+  animation-duration: 3s;
+  animation-name: slideFromLeft;
+  animation-timing-function: ease-in-out;
+  filter: drop-shadow(0 0 6px var(--shirt-color));
+}
+
+@keyframes slideFromLeft {
+ from {
+  transform: translateX(100%);
+ }
+ to {
+  transform: translateX(0);
+ }
+}
+
+.introduceSection .introduceText {
+  position: relative;
+  top: 0;
+  bottom: 50%;
+  display: flex;
+  font-size: 1.2rem;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2em;
+  width: 60%;
+  text-align: left;
+}
+.introduceSection .introduceText div {
+  position: relative;
+  top: 5vh;
+}
+
+.introduceSection .introduceText div h4, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+#myName {
+  color: var(--skin-color)
+}
+
+/* -------------------- Visitors Count Section --------------- */
+
+#visitorsCountSection {
+  display: block;
+  position: relative;
+  margin-top: 5rem;
+}
+#visitorsCountSection div {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: .2rem;
+  border: 3px groove var(--shirt-color);
+  border-radius: .5rem;
+  background-color: rgb(44, 44, 44);
+  transform: scale(2);
+}
+
+
+/* -------------------- About Section --------------- */
+
+.myWrapper {
+  position: sticky;
+  top: 5rem;
+}
+
+.aboutSection {
+  padding: 5rem 2rem;
+  padding-bottom: 0;
+}
+
+.aboutParagraph {
+  font-size: 1rem;
+}
+
+.title {
+  display: block;
+  position: relative;
+  font-weight: bolder;
+  white-space: nowrap;
+  text-align: center;
+  width: fit-content;
+  margin: 1em auto;
+  z-index: 3;
+  font-size: 2rem;
+}
+
+.title span {
+  background-color: var(--dark-color);
+  padding: 0 10px;
+  color: var(--shirt-color);
+}
+
+.title::before{
+  content: "";
+  position: absolute;
+  height: .25rem;
+  width: 70vw;
+  right: 0;
+  top: 50%;
+  bottom: 50%;
+  background-color: var(--shirt-color);
+  z-index: -2;
+}
+
+.title::after{
+  content: "";
+  position: absolute;
+  height: .25rem;
+  width: 70vw;
+  left: 0;
+  top: 50%;
+  bottom: 50%;
+  background-color: var(--shirt-color);
+  z-index: -2;
+}
+
+.aboutTitles {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 6em;
+}
+
+.aboutTitles li {
+  font-size: 1.5rem;
+}
+
+.bordered {
+  text-decoration: none;
+  position: relative;
+  width: fit-content;
+  display: flex;
+  color: var(--skin-color);
+  border: .25rem groove var(--shirt-color);
+  border-radius: 10px;
+  padding: .25rem .5rem;
+}
+
+.shining {
+  box-shadow: 0 0 2rem var(--shirt-color);
+}
+
+.rotatingButton {
+  max-width: fit-content;
+}
+
+.resizing {
+  animation: resize ease-in-out 2s infinite;  
+}
+
+@keyframes resize {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.rotatingButton:hover *{
+  animation: rotateButton ease-in-out .5s;
+}
+
+a.toolsButton {
+  text-decoration: none;
+  color: var(--skin-color);
+  font-weight: 50;
+  cursor: pointer;
+}
+
+a.toolsButton:hover::after, a.toolsButton:hover::before {
+  width: 0;
+}
+
+@keyframes rotateButton{
+  0% { transform: rotate(0deg);}
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(0deg); }
+  60% { transform: rotate(-7deg); }
+  80% { transform: rotate(-0deg); }
+  100% { transform: rotate(3deg); }
+}
+
+a.toolsButton.active {
+  font-weight: 900;
+}
+
+.aboutData {
+  display: none;
+  flex-direction: column;
+  font-size: 2rem;
+}
+
+.aboutSection p {
+  font-size: 1rem;
+}
+
+.aboutData.active {
+  display: flex;
+  margin: 0 1rem;
+}
+
+ul {
+  padding: 0;
+}
+
+.aboutData li {
+  flex-direction: column;
+  margin: 1em 0;
+  font-size: 1.5rem;
+}
+
+
+.aboutData a {
+  color: var(--shirt-color);
+  margin-bottom: 0.2rem;
+}
+
+.fancyText{
+  font-weight: 100;
+  font-size: 1.2rem;
+  font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: italic;
+}
+
+/* ----- Projects Section ------- */
+
+.projectsSection {
+  padding: 0 2em;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+} 
+
+#projectsBackground {
+  position: relative;
+  width: 100%;
+  margin-top: 7vw;
+}
+
+.slider {
+  position: relative;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 30vw;
+  height: 30vw;
+  transform-style: preserve-3d;
+  animation: caruosel 25s linear infinite;
+}
+
+@keyframes caruosel{
+  0% {
+    transform: rotateY(0deg) ;
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.slider span {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.slider span img {
+  position: absolute;
+  top: 0;
+  width: 85%;
+  height: 60%;
+  border-radius: 4vw;
+  object-fit: cover;
+  transition: 2s;
+  border: 3px groove var(--dark-color);
+  box-shadow: 0 9px 11px var(--shirt-color);
+  cursor: pointer;
+}
+
+.slider span.active img {
+  scale: 1.3;
+}
+
+.slider span:hover img{
+  transform: translateY(-4vw) scale(1.3);
+}
+
+.projectDescription a {
+  color: rgb(0, 170, 255);
+}
+
+.projectDescription p .imageExplanation::before {
+  font-size: 1.5rem;
+  content: "What do we see in the picture?";
+  display: block;
+  text-decoration: underline;
+  padding: 0.5em 0;
+}
+
+.projectDescription {
+  display: none;
+
+}
+
+.projectDescription.active {
+  flex-direction: column;
+  border: 3px double var(--shirt-color);
+  border-radius: 10px;
+  margin: 3em 0;
+  padding: 1em;
+  display: block;
+}
+
+.projectImage {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  padding-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+/* ----------------- Contact Section ----------------- */
+
+.contactSection {
+  padding: 0 1rem;
+  padding-top: 5rem;
+
+}
+.contactSection .row {
+  display: flex;
+  justify-content: space-between;
+}
+.contact-left {
+  flex-basis: 35%;
+}
+
+.contact-right {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.contact-left p {
+  margin: 1em 0;
+}
+
+.contact-left p i {
+  font-size: 1.5rem;
+  margin:  0 1em;
+}
+
+.contact-left div span {
+  width: 100px;
+  padding: 0;
+}
+.contact-left span a {
+  text-decoration: none;
+  color: var(--skin-color);
+  border: 3px groove var(--shirt-color);
+}
+.social-icons {
+  margin: 2em 0;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.social-icons i {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--shirt-color);
+  transition: 0.3s;
+}
+
+.social-icons a:hover i{
+  transform: scale(1.3) translateY(-5px);
+  color: var(--skin-color);
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contact-right form input, .contact-right form textarea {
+  margin: .85rem 1rem;
+  border: 2px groove var(--shirt-color);
+  border-radius: .5em;
+  outline: none;
+  background-color: var(--shirt-color);
+  color: var(--dark-color);
+  font-size: 1.3rem;
+  font-family: inherit;
+}
+
+.contact-right form input::placeholder, .contact-right form textarea::placeholder {
+  color: var(--dark-color);
+  opacity: .5;
+}
+
+.contact-right form div {
+  margin: 0 auto;
+}
+
+.contact-right form div #submitButton, .contact-left .downloadButtonDiv #downloadCvButton {
+  background-color: var(--dark-color);
+  color: var(--skin-color);
+  border: 3px groove var(--shirt-color);
+  border-radius: 7px;
+  cursor: pointer;
+  padding: .25rem .5rem;
+  font-size: 1.5rem;
+  display: block;
+  margin: 0 auto;
+}
+
+#contactText {
+  display: block;
+  padding: 0 1rem;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.contactSection .questionWrapper {
+  width: fit-content;
+  margin: 0 auto;
+}
+.contactSection .questionWrapper .question {
+  font-size: 2rem;
+  display: block;
+  white-space: nowrap;
+  color: var(--shirt-color);
+  text-shadow: 0 0 1rem var(--skin-color);
+  text-align: center;
+  border-bottom: .25rem groove var(--shirt-color);
+}
+
+#phoneNumber {
+  color: var(--shirt-color);
+  text-decoration: none;
+}
+
+/* -------------- Copyright Section ------------- */
+
+.copyrightSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+  height: 2em;
+  width: 100%;
+  background-color: var(--shirt-color);
+  color: var(--dark-color);
+}
+.copyrightSection span {
+  display: block;
+  font: 2rem;
+}
+
+#message {
+  color: lightgreen;
+  display: block;
+  margin: 2rem auto;
+}
+
+/* ----------------- Media Responsiveness --------------- */
+
+@media only screen and (max-width: 1050px) {
+  html, body {
+    font-size: 18px;
+  }
+
+  .menuSection .menu li {
+    font-size: 1.5rem;
+    padding: 0 .5em;
+  }
+
+  .introduceSection {
+    height: 60vw;
+    z-index: 2;
+  }
+  .introduceSection .selfie {
+    height: 60vw;
+    z-index: 1;
+  }
+
+  #visitorsCountSection div {
+    transform: scale(2);
+  }
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Bar Levi's Portfolio</title>
+        <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body onload="setTransforms()">
+        <script src="main.js"></script>
+        
+        <section class="menuSection">
+
+            <span style="font-style: italic;">Bar Levi .</span>
+            <ul id="menu" class="menu">
+                <li><a class="linedText" href="#introduceSection">Home</a></li>
+                <li><a class="linedText" href="#aboutSection">About</a></li>
+                <li><a class="linedText" href="#projectsSection">Projects</a></li>
+                <li><a class="linedText" href="#contactSection">Contact</a></li>
+            </ul>
+        </section>
+        <section class="introduceSection" id="introduceSection">
+            <div class="introduceText">
+                <div>
+                    <h4 class="fancyText">Software Developer</h4>
+                    <h2>Hey there! I'm <span  id="myName">Bar</span></h2>
+                    <h2 class="autoTypedText"></h2>
+                </div>
+            </div>
+            <img class="selfie" src="Assets/mySelfie.png" alt="Bar smiling to the camera.">
+        </section> 
+        <section id="visitorsCountSection">
+            <div>
+                <script type="text/javascript" src="https://www.counters-free.net/count/cx9g"></script>
+            </div>
+        </section>
+        <section class="aboutSection" id="aboutSection">
+            <h2 class="title"><span>About Me</span></h2>
+            <p class="aboutParagraph">Hey, I'm Bar!<br>
+                A 3rd-year Software Engineering student with a passion for coding.<br>
+                I'm proficient in Python, Java, C, and C++.<br>
+                Lately I've been diving into front-end technologies like JavaScript, HTML5, and CSS3.<br>
+                I've got this thirst for learning that just doesn't quit, and I'm always excited to take on new programming adventures.<br>
+                Let's connect and make some digital magic happen!
+            </p>
+            <ul class="aboutTitles" id="aboutTitles">
+                <li class="rotatingButton resizing"><a class="bordered shining toolsButton active" onclick="openTab('skills')">Skills</a></li>
+                <li class="rotatingButton resizing"><a class="bordered toolsButton" onclick="openTab('experience')">Experience</a></li>
+                <li class="rotatingButton resizing"><a class="bordered toolsButton" onclick="openTab('education')">Education</a></li>
+            </ul>
+            <ul class="aboutData active" id="skills">
+                <li>
+                    <span class="fancyText">Games Developer</span><br>
+                    Games development and design.
+                </li>
+                <li>
+                    <span class="fancyText">Graphical User Interface (GUI)</span><br>
+                    Development of a convenient and attractive GUI for users.
+                </li>
+                <li>
+                    <span class="fancyText">Creativity & Problem Solving</span><br>
+                    Building problem solving applications from scratch.
+                </li>
+            </ul>
+            <ul class="aboutData" id="education">
+                <li>Maintain a high academic record with a 9/10 GPA as a third-year software engineering student at SCE College, demonstrating dedication and academic excellence.</li>
+                <li>Created a variety of Python projects throughout the semester, investing significant effort to enhance proficiency in the language and improve project execution skills.</li>
+                <li>Developed projects by enhancing proficiency in object-oriented programming and Data Structures</li>
+            </ul>
+            <ul class="aboutData" id="experience">
+                <li>
+                    <a href="#!" class="fancyText">Vehicle Agency</a><br>
+                    Built as a team, a Java system with Memento, Abstract Factory, Observer, Decorator, Thread Pool, and Singleton design patterns, providing a user-friendly GUI for adding, selling, test driving vehicles, and supports concurrent operations with threads.<br><span class="fancyText">(Java: OOP, Swing, Threads)</span>
+                </li>
+                <li>
+                    <a href="#!" class="fancyText">Snake and Icy Tower Games</a><br>
+                    Developed games using Pygame, featuring high scores, sound effects, and innovative elements for an enhanced player experience.<br><span class="fancyText">(Python: Pygame)</span>
+                </li>
+                <li>
+                    <a href="#!" class="fancyText">Chat Platform</a><br>
+                    Designed a chat platform.<br><span class="fancyText">(Python: Socket, Tkinter, Pickle & Threading libraries)</span>
+                </li>
+                <li>
+                    <a href="#!" class="fancyText">Expiration Date Countdown</a><br>
+                    Built a user-friendly GUI solution to track product expiration dates for the supermarket industry.<br><span class="fancyText">(Python: Tkinter library)</span>
+                </li>
+            </ul>
+        </section>
+        <section class="projectsSection" id="projectsSection">
+            <h2 class="title"><span>My Projects</span></h2>
+            <p>
+                My projects showcase my journey in programming.<br>
+                Built from scratch, they've helped me learn and improve my skills.<br>
+                Some were born from solving real problems I faced.<br>
+                These applications were crafted independently during college breaks and summers.<br>
+                Feel free to explore any project to learn more!
+            </p>
+            <div id="projectsBackground">
+                <div class="slider" id="projectSlider">
+                    <span style="--i:1" onclick="showDescription('ChattingPlatformDescription')"><img src="Assets/projectsPictures/ChattingPlatformPicture.png" alt="ChattingPlatformPicture"></span>
+                    <span style="--i:2" onclick="showDescription('ExpireCountdownDescription')"><img src="Assets/projectsPictures/ExpireCountdownPicture.png" alt="ExpireCountdownPicture"></span>
+                    <span style="--i:3" onclick="showDescription('IcyTowerDescription')"><img src="Assets/projectsPictures/IcyTowerGameplayPicture.png" alt="IcyTowerGameplayPicture"></span>
+                    <span style="--i:4" onclick="showDescription('PictureSelectorDescription')"><img src="Assets/projectsPictures/PictureSelectorPic.png" alt="PictureSelectorPic"></span>
+                    <span style="--i:5" onclick="showDescription('PongGameDescription')"><img src="Assets/projectsPictures/PongGamePic.png" alt="PongGamePic"></span>
+                    <span style="--i:6" onclick="showDescription('snakeGameDescription')"><img src="Assets/projectsPictures/snakeGamePicture.png" alt="snakeGamePicture"></span>
+                    <span style="--i:7" onclick="showDescription('TriviaDescription')"><img src="Assets/projectsPictures/TriviaPicture.png" alt="TriviaPicture"></span>
+                    <span style="--i:8" onclick="showDescription('VehicleAgencyDescription')"><img src="Assets/projectsPictures/VehicleAgencyPicture.png" alt="VehicleAgencyPicture"></span>
+                </div>   
+                <ul>
+                    <li class="projectDescription" id="ChattingPlatformDescription">
+                        <p>
+                            <span class="centered">Chatting Platform</span>
+                            A chatting platform written in Python, and including Socket, Tkinter, Pickle, and Threading libraries. On this platform, you will register and sign in with your personal username and password for your choice, and you will be able to search for other accounts as well as chat with them, and even create some new friendships.                            
+                            <img class="projectImage" src="Assets/projectsPictures/ChattingPlatformPicture.png" alt="Chatting Platform picture">
+                            <span class="imageExplanation">
+                                A quick snapshot of the Chatting Platform.<br>
+                                Here we can see the graphical user interface of the platform for 2 different users who are currently chatting with each other.
+                            </span>
+                        </p>
+                        <a href="https://github.com/Bar-Levi/ChattingPlatform">Click here to view project on GitHub.</a>
+                </li>
+                    <li class="projectDescription" id="ExpireCountdownDescription">
+                        <p>
+                            <span class="centered">Expire Date Countdown</span>
+                            A great GUI solution to keep track of product expiration dates and maintain freshness with ease, built in Python using the Tkinter library, for the supermarket industry.
+                            <img class="projectImage" src="Assets/projectsPictures/ExpireCountdownPicture.png" alt="Expire Date Countdown picture">
+                            <span class="imageExplanation">
+                                A quick snapshot of the Expire Date Countdown application.<br>
+                                Here we can see some market products that were inserted into the application (in another window) and now are sorted by expiring dates, marked with special colors for each time range.<br>
+                                Each product has its name, expiring date, and days left until expiration for the user's convenience.
+                            </span>
+                        </p>
+                        <a href="https://github.com/Bar-Levi/ExpireDateCountdown">Click here to view project on GitHub.</a>
+                </li>
+                    <li class="projectDescription" id="IcyTowerDescription">
+                        <p>
+                            <span class="centered">Icy Tower</span>
+                            An Icy Tower game written in Python using the Pygame library.<br>
+                            Including sounds, increasing speed, and many levels of joy - as well as documentation.
+                            Got to say - my 6 years old cousins just LOVE playing it!
+                            <img class="projectImage" src="Assets/projectsPictures/IcyTowerGameplayPicture.png" alt="Icy Tower picture">
+                            <span class="imageExplanation">
+                                A quick snapshot of the Icy Tower game.<br>
+                                Here we can see Donatello, the ninja turtle, jumping over levels while the background behind him is moving, giving the illusion of moving upwards, just like the original Icy Tower game.
+                            </span>
+                        </p>
+                        <a href="https://github.com/Bar-Levi/IcyTower">Click here to view project on GitHub.</a>
+                    </li>
+                    <li class="projectDescription" id="PictureSelectorDescription">
+                        <p>
+                            <span class="centered">Picture Selector</span>
+                            Picture Selector is a program that allows you to easily select and organize your pictures in a user-friendly interface.<br>
+                            It provides a simple and intuitive way to browse and select your photos, making it easy to manage and organize your digital photo collection.
+                            <img class="projectImage" src="Assets/projectsPictures/PictureSelectorPic.png" alt="Picture Selector picture">
+                            <span class="imageExplanation">
+                                A quick snapshot of the Picture Selector.<br>
+                                Here we can see a picture of a cute dog, as one of many other pictures from a directory the user chose.<br>
+                                The user has some buttons he can click for moving to the next/previous picture, and to choose/unchoose a picture - as well as the options to use the keyboard's right&left arrows as well as the backspace for choosing/unchoosing.
+                            </span>
+                        </p>
+                        <a href="https://github.com/Bar-Levi/PictureSelector">Click here to view project on GitHub.</a>
+                    </li>
+                    <li class="projectDescription" id="PongGameDescription">
+                        <p>
+                            <span class="centered">Pong</span>
+                            A pong game written in Python, by importing Turtle library. Including some original features such as pausing, playing again, increasing ball movement speed and teleporters.                            
+                            <img class="projectImage" src="Assets/projectsPictures/PongGamePic.png" alt="Pong picture">
+                            <span class="imageExplanation">
+                                A quick snapshot of the game.<br>
+                                That was my first self-made project!<br>
+                                Here we can see both players' name and score on the top, with a suggestion for pausing/unpausing the game by pressing 'p'.<br>
+                                Moreover, we can see the colorful paddles and the ball which are getting faster and changing colors as time goes on.<br>
+                                Pay attention to the gray teleporters - if the ball gets inside one of them, it will surprise you by jumping from the second one.
+                            </span>
+                        </p>
+                        <a href="https://github.com/Bar-Levi/PongGame">Click here to view project on GitHub.</a>
+                    </li>
+                    <li class="projectDescription" id="snakeGameDescription">
+                        <p>
+                            <span class="centered">Snake</span>
+                            A Snake game written in Python using Pygame library - including comments and some extra features such as a Menu, Top 5, pausing and more...
+                            <img class="projectImage" src="Assets/projectsPictures/snakeGamePicture.png" alt="Snake picture">
+                            <span class="imageExplanation">
+                                A quick snapshot of the game.<br>
+                                We can see the snake's body on a grid board.<br>
+                                The regular red apple equals 1 point, and the moving 2 apples (red and green) equal 2 points as they are harder to catch.
+                            </span>
+                        </p>
+                        <a href="https://github.com/Bar-Levi/SnakeGame">Click here to view project on GitHub.</a>
+                    </li>
+                    <li class="projectDescription" id="TriviaDescription">
+                        <p>
+                            <span class="centered">Trivia</span><br>
+                            A Trivia game written in Python using Pygame, with documentation included.<br>
+                            Made while helping an 11th-grade student create a school project.<br>
+                            <img class="projectImage" src="Assets/projectsPictures/TriviaPicture.png" alt="Trivia picture">
+                            <span class="imageExplanation">
+                                A quick snapshot of the Trivia game.<br>
+                                Here was can see the statement that the player has to choose whether is true or false.<br>
+                                Moreover, the player's current score is shown at the top-left side of the screen as gold/empty stars - at that point, the player has guessed right, 2 answers out of 3.
+                            </span>
+                        </p>
+                        <a href="https://github.com/Bar-Levi/TriviaGame">Click here to view project on GitHub.</a>
+                    </li>
+                    <li class="projectDescription" id="VehicleAgencyDescription">
+                        <p>
+                            <span class="centered">Vehicle Agency</span><br>
+                            The Vehicle Agency project is a Java system with Memento, Abstract Factory, Observer, Decorator, ThreadPool, and Singleton design patterns.<br>
+                            It provides a user-friendly GUI for adding, selling, test driving vehicles, and supports concurrent operations with threads.<br>
+                            <img class="projectImage" src="Assets/projectsPictures/VehicleAgencyPicture.png" alt="Vehicle Agency picture">
+                            <span class="imageExplanation">
+                                Top-left corner: A window where the user can add new vehicles to his agency, according to the given types.<br>
+                                Top-right corner: Our welcome window, with pictures of me and my collaborator, Rony Bubnovsky.<br>
+                                Bottom-left corner: After choosing a type of vehicle to add, the user has the option to add some more concrete data about the specific vehicle such as model, speed, passenger count, choosing a picture, etc.<br>
+                                Bottom-right corner: Data updating snapshot.
+                            </span>
+                        </p>
+                        <a href="https://github.com/Bar-Levi/VehicleAgency">Click here to view project on GitHub.</a>
+                    </li>
+                </ul>
+            </div> 
+
+            
+        </section> 
+        <section class="contactSection" id="contactSection">
+            <h1 class="title"><span>Contact Me</span></h1>
+            <div class="questionWrapper"><span class="question">Ready to team up?</span></div>
+            <div class="row">
+                <div class="contact-left">
+                    <p id="contactText">
+                        Feel free to send me a message on any of the platforms I've mentioned below.<br>
+                        I'm looking forward to connecting and discovering the exciting possibilities we can dive into!
+                    <p><i class="fa-regular fa-paper-plane"></i>bar314levi@gmail.com</p>
+                    <p id="phoneNumber"><i class="fa-solid fa-phone"></i>+972-52-9569907</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=100001077609111"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://twitter.com/barlevi99"><i class="fa-brands fa-twitter-square"></i></a>
+                        <a href="https://www.instagram.com/barlevi99/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/bar-levi-software-developer/"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <div class="downloadButtonDiv">
+                        <span class="rotatingButton"><a id="downloadCvButton" style="white-space: nowrap;" class="resizing shining bordered" href="Assets/BarLevi-CV.pdf" download>Download CV</a></span>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <div class="rotatingButton">
+                            <button id="submitButton" class="rotatingButton resizing shining" type="submit">Submit</button>
+                        </div>
+                        <span id="message"></span>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="copyrightSection">
+            <span>Copyright ©Bar Levi. Hope you enjoyed! <i class="fa-solid fa-heart"></i></span>
+        </section>
+
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+        <script>
+             let typed = new Typed(".autoTypedText", {
+                strings: ["Coding, creating, and seeking inspiration."],
+                typeSpeed: 100,
+                backSpeed: 30,
+                loop: false
+             })
+        </script>
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw3PIUEBcOZnmhrXCyjC2edFBPCYOueiYd7zLAVkBhlMP8YmoWWda1uMAxktnR4Orsh-Q/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const message = document.getElementById("message");
+
+            form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    message.innerHTML = "Message sent successfully.\nThank you!";
+                    setTimeout(function() {
+                        message.innerHTML = "";
+                    }, 5000);
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
+
+        <script>
+            const spans = document.querySelectorAll('#projectSlider span');
+            spans.forEach((span, index) => {
+            span.style.transform = 'rotateY(calc(var(--i) * '+360/spans.length+'deg)) translateZ(40vw)';
+            });
+        </script>
+    </body>
+</html>
+
