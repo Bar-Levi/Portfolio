@@ -56,13 +56,13 @@ function animateCounter(el) {
   const target   = parseFloat(el.dataset.target);
   const suffix   = el.dataset.suffix || '';
   const isFloat  = el.hasAttribute('data-float');
-  const duration = 1200;
+  const duration = 1400;
   const start    = performance.now();
 
   function step(now) {
     const elapsed  = now - start;
     const progress = Math.min(elapsed / duration, 1);
-    const eased    = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const eased    = 1 - Math.pow(1 - progress, 3);
     const current  = target * eased;
 
     el.textContent = isFloat
@@ -87,3 +87,84 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.metric-card').forEach(card => counterObserver.observe(card));
+
+// ── SCROLL PROGRESS BAR ──
+const progressBar = document.getElementById('scroll-progress');
+if (progressBar) {
+  window.addEventListener('scroll', () => {
+    const docH  = document.documentElement.scrollHeight - window.innerHeight;
+    const pct   = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }, { passive: true });
+}
+
+// ── TEXT SCRAMBLE ──
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~/.-_';
+
+function scrambleText(el) {
+  const original = el.dataset.originalText || el.textContent;
+  el.dataset.originalText = original;
+
+  let frame = 0;
+  const totalFrames = original.length * 3;
+
+  function tick() {
+    const progress = frame / totalFrames;
+    const revealUpTo = Math.floor(progress * original.length);
+
+    el.textContent = original
+      .split('')
+      .map((char, i) => {
+        if (i < revealUpTo) return char;
+        if (char === ' ') return ' ';
+        return CHARS[Math.floor(Math.random() * CHARS.length)];
+      })
+      .join('');
+
+    frame++;
+    if (frame <= totalFrames) requestAnimationFrame(tick);
+    else el.textContent = original;
+  }
+
+  requestAnimationFrame(tick);
+}
+
+const scrambleObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      scrambleText(entry.target);
+      scrambleObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.8 });
+
+document.querySelectorAll('.section-label').forEach(el => scrambleObserver.observe(el));
+
+// ── 3D CARD TILT ──
+const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+function addTilt(selector, strength = 8) {
+  document.querySelectorAll(selector).forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      if (isMobile()) return;
+      const rect = card.getBoundingClientRect();
+      const cx   = rect.left + rect.width  / 2;
+      const cy   = rect.top  + rect.height / 2;
+      const dx   = (e.clientX - cx) / (rect.width  / 2);
+      const dy   = (e.clientY - cy) / (rect.height / 2);
+      const rotX = -dy * strength;
+      const rotY =  dx * strength;
+
+      card.style.transition = 'transform 0.08s ease, border-color 0.25s, box-shadow 0.25s';
+      card.style.transform  = `perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(4px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.5s ease, border-color 0.25s, box-shadow 0.25s';
+      card.style.transform  = 'perspective(700px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    });
+  });
+}
+
+addTilt('.project-card', 7);
+addTilt('.metric-card', 5);
